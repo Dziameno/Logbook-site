@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_password = password_hash($password, PASSWORD_DEFAULT); //Hashowanie hasła
             
             if(mysqli_stmt_execute($stmt)){
-                header("location: login.php");
+                header("location: index.php");
             } else{
                 echo "Coś poszło nie tak! Spróbuj ponownie.";
             }
