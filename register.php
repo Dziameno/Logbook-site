@@ -103,7 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		<center>
 			<nav class="navbar navbar-dark bg-dark" style="width: 50%">
 			<h4 style="color: white; margin: 0px 20px">Rejestracja konta w serwisie Logbook</h4>
-			<button class="button"><a href="login.php" >Powrót na stronę logowania</a></button>
+			<button class="button"><a href="index.php" >Powrót na stronę logowania</a></button>
 		</center>
 		
 		<center>	
