@@ -1,12 +1,13 @@
 <?php
 session_start();
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: index.php");
     exit;
 }
 
 $time = time();
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ $time = time();
 	<center>
 		<div id ="tabs" style="width: 50%">
 		<div><?php echo(date("d-m-y",$time));?></div>
-		<div><?php echo(date("H:i:s",$time));?></div>
+		<div><?php echo(date("H:i",$time));?></div>
 		</div>
 		
 		<nav class="navbar navbar-dark bg-dark" style="width: 50%">

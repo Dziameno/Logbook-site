@@ -6,64 +6,44 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 
-$time = time();
-
 require_once "config.php";
 
-$export = mysqli_query($link,"SELECT * FROM flights INNER JOIN users ON users_name = username WHERE username = '".$_SESSION["username"]."'");
+function filterData(&$str) {
+	$str = preg_replace("/\t/", "\\t", $str);
+	$str = preg_replace("/\r?\n/", "\\n", $str);
+	if(strstr($str,'""')) $str = '"'.str_replace ('"','""', $str).'"';
+}
+
+$fileName = "Logbook-".date('d-m-y').".xls";
+
+$fields = array('Imie','Nazwisko','Producent','Znak Rejestracyjny','Wylot',' ',' ','Przylot',' ',' ');
+
+$excel = implode("\t", array_values($fields))."\n";
+
+$query = mysqli_query($link,"SELECT name,surname,producer,registration,dep_ariport,dep_date,dep_time,arr_ariport,arr_date,arr_time FROM flights INNER JOIN users ON users_name = username WHERE username = '".$_SESSION["username"]."'");
+
+
+if(mysqli_num_rows($query) > 0)
+{
+	$i=0;
+	while($row = mysqli_fetch_array($query)) {
+		$i++;
+		$rowData = array($row['name'], $row['surname'], $row['producer'], $row['registration'], $row['dep_ariport'], $row['dep_date'], $row['dep_time'], $row['arr_ariport'], $row['arr_date'], $row['arr_time']);
+		array_walk($rowData,'filterData');
+		$excel .= implode("\t", array_values($rowData))."\n";
+	}
+		
+}
+else
+{
+	echo "Nie udało się wyexportować bazy danych do Excela!";
+}
+
+header("Content-Disposition: attachement; filename=\"$fileName\"");
+header("Content-Type: application/vnd.ms-excel");
+
+echo $excel;
+
+exit;
 
 ?>
-
-<!DOCTYPE html>
-<html lang="PL">
-<head>
-    <meta charset="UTF-8">
-    <title>Ustawienia</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="styles.css" type="text/css"/>
-</head>
-<body>
-	<img src = "logbook.svg" style="width: 40vw;"/>
-	<h3> &nbsp </h3>
-	<center>
-		<div id ="tabs" style="width: 50%">
-		<div><?php echo(date("d-m-y",$time));?></div>
-		<div><?php echo(date("H:i:s",$time));?></div>
-		</div>
-		
-		<nav class="navbar navbar-dark bg-dark" style="width: 50%">
-		<button class="button"><a href="welcome.php" >Menu Główne</a></button><br>
-		<button class="button"><a href="new.php" >Nowy wpis</a></button><br>
-        <button class="button"><a href="database.php" >Baza lotów</a></button><br>
-		
-		<div class="dropdown">
-		<button class="dropbtn"><?php echo htmlspecialchars($_SESSION["username"]); ?></button>
-			<div class="dropdown-content">
-				<a href="settings.php">Ustawienia</a>
-				<a href="logout.php">Wyloguj</a>	
-			</div>
-		</div> 
-		
-	</center>
-	<br>
-	<h3>
-		<?php
-		
-		if($export==TRUE)
-		{	
-		
-			
-			mysqli_close($link);
-			header("location:database.php");
-			exit;	
-		}
-		else
-		{
-			echo "Nie udało się wyexportować bazy danych do Excela!";
-		}
-		?>
-	</h3>
-        
-	
-</body>
-</html>

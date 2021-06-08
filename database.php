@@ -23,7 +23,7 @@ $time = time();
 	<center>
 		<div id ="tabs" style="width: 50%">
 		<div><?php echo(date("d-m-y",$time));?></div>
-		<div><?php echo(date("H:i:s",$time));?></div>
+		<div><?php echo(date("H:i",$time));?></div>
 		</div>
 		
 		<nav class="navbar navbar-dark bg-dark" style="width: 50%">
@@ -89,9 +89,9 @@ $time = time();
 					mysqli_close($link);
 					?>
 				</table>
-				
-			<form method="post">		
-				<button class="button" style="float: right; margin: 0px 96px"><a href="export.php">Export!</button>
+	
+			<form action="logbook.csv">		
+				<button class="button" style="float: right; margin: 0px 96px"><a href="export.php">Pobierz do Excel'a</button>
 			</form>
 		</center>	
 	</body>
