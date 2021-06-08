@@ -11,6 +11,9 @@ a:hover{
 #delete{
 	color:#CC0000;}
 
+#edit{
+	color:#FFCC00;}	
+
 #tabs{
 	display: flex;
 	flex-direction: row;

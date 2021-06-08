@@ -41,6 +41,13 @@ $time = time();
 		</div> 
 		
 		</center>
-		<h1 class="">Witaj,<?php echo htmlspecialchars($_SESSION["username"]); ?></h1>
+		<h1 class="">Witaj,<?php echo htmlspecialchars($_SESSION["username"]); ?></h1><br>
+		<center>
+		<div id ="" style="width: 50%">
+			Strona ta została stworzona z myślą o miłośnikach lotnictwa. Jest to wirtualny dziennik lotów skierowany
+			zarówno do pilotów latających w czasie rzeczywistym oraz tych latających w świecie wirtualnym. Format zapisu
+			zależy tylko od Ciebie!
+		</div>
+		</center>	
 </body>
 </html>

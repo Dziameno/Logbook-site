@@ -50,7 +50,7 @@ $time = time();
 					<td colspan="3">Samolot</td>
 					<td colspan="3">Wylot</td>
 					<td colspan="4">Przylot</td>
-					<td>Czas lotu</td><td></td></tr>
+					<td colspan="3">Czas</td></tr>
 					</div>
 					<tr class="table-dark"><td></td><td>Imie</td>
 					<td>Nazwisko<td></td></td>
@@ -62,7 +62,7 @@ $time = time();
 					<td>Lotnisko</td>
 					<td>Data</td>
 					<td>Godzina</td>
-					<td>HH:MM:SS</td><td></td></tr>
+					<td colspan="3">HH:MM:SS</td></tr>
 					<?php 
 					require_once "config.php";
 
@@ -84,6 +84,7 @@ $time = time();
 					<td>".$row['arr_date']."</td>
 					<td>".$row['arr_time']."</td>
 					<td>".$time_result."</td>
+					<td><a id='edit' href='edit.php?id=".$row['nr_lotu']."'>Edytuj</a></td>
 					<td><a id='delete' href='delete.php?id=".$row['nr_lotu']."'>Usuń</a></td></tr>";
 					}
 					mysqli_close($link);
@@ -91,7 +92,7 @@ $time = time();
 				</table>
 	
 			<form action="logbook.csv">		
-				<button class="button" style="float: right; margin: 0px 96px"><a href="export.php">Pobierz do Excel'a</button>
+				<button class="button" style="float: right; margin: 0px 40px 0px"><a href="export.php">Pobierz do Excel'a</button>
 			</form>
 		</center>	
 	</body>
