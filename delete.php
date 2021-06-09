@@ -17,6 +17,7 @@ $del = mysqli_query($link,"DELETE FROM flights WHERE nr_lotu = '$id'");
 <!DOCTYPE html>
 <html lang="PL">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Strona Główna</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
