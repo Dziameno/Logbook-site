@@ -1,4 +1,4 @@
-# Logbook-site
+# Logbook site
 Logbook site created as final project for Programming Workshops on II SEM PJAIT
 
 ## Technologies used in project
@@ -15,25 +15,25 @@ Even if you are enthusiast of flying simulators, you can use it as well. Nobody 
 
 ## Login
 <p align="center">
-<img src="./pics/air0.PNG" width="600" height="600"/>
+<img src="./pics/air0.PNG" width="800" height="600"/>
 </p>
 
 ## User welcome site
 <p align="center">
-<img src="./pics/air1.PNG" width="600" height="600"/>
+<img src="./pics/air1.PNG" width="800" height="600"/>
 </p>
 
 ## New flight
 <p align="center">
-<img src="./pics/air2.PNG" width="600" height="600"/>
+<img src="./pics/air2.PNG" width="800" height="600"/>
 </p>
 
 ## List of all user flights
 <p align="center">
-<img src="./pics/air3.PNG" width="1200" height="200"/>
+<img src="./pics/air3.PNG" width="1200" height="400"/>
 </p>
 
 ## Settings and logout bar
 <p align="center">
-<img src="./pics/air4.PNG" width="1200" height="200"/>
+<img src="./pics/air4.PNG" width="1200" height="400"/>
 </p>
