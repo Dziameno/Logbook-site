@@ -35,5 +35,5 @@ Even if you are enthusiast of flying simulators, you can use it as well. Nobody 
 
 ## Settings and logout bar
 <p align="center">
-<img src="./pics/air4.PNG" width="1200" height="400"/>
+<img src="./pics/air4.PNG"/>
 </p>
